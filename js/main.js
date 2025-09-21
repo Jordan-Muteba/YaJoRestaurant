@@ -168,7 +168,7 @@ function verifier_info(){
                                             initialCorrect(place);
                                             if(dateValue !==""){
                                                 initialCorrect(date);
-                                                alert("Bonjour "+ nomValue + "! votre reservation a été enregistré avec succès !");
+                                                alert("Bonjour "+ nomValue + " " +' ! votre reservation a été enregistrée avec succès ! \n prière de cliquer ci-dessous lorsque que vous souhaitez la verifier. ');
                                                 // console.log(nomValue, adresseValue ,phoneValue, emailValue , paysValue, villeValue, evenementValue, placeValue, dateValue );
                                             } else {  erreur(date);}                                     
                                         } else {  erreur(place);}
