@@ -1,0 +1,29 @@
+.noReservation{
+    border: 2px solid rgb(205, 205, 205);
+    border-radius: 10px;
+    margin: auto ;
+    margin-top: 15%;
+    padding: 1.3%;
+    text-align: center;
+}
+.afterReservation{
+    border: 2px solid rgb(220, 219, 218);
+    border-radius: 15px;
+    margin: auto;
+    padding: 1.6%;
+    text-align: left;
+    justify-content: left;
+    margin-top: 8%;
+}
+.afterReservation label{
+    color: rgb(80, 80, 80);
+    margin-bottom: 2px;
+}
+.textareaR{
+    border-radius: 15px;
+    margin-top: 2%;
+    padding: 2%;
+}
+.infoVeri{
+
+}

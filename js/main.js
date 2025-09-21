@@ -109,3 +109,89 @@
 
 })(jQuery);
 
+
+// Mon code
+// *********
+// *********
+
+// Récupération des données
+const form = document.querySelector("#form");
+const nom = document.querySelector("#nomComplet");
+const adresse = document.querySelector("#adresse");
+const phone = document.querySelector("#phone");
+const email = document.querySelector("#email");
+const pays = document.querySelector("#pays");
+const ville = document.querySelector("#ville");
+const evenement = document.querySelector("#evenement");
+const place = document.querySelector("#place");
+const date = document.querySelector("#date");
+ 
+
+// Elèments 
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    verifier_info();
+    
+} )
+
+//  Méthodes
+function verifier_info(){
+    const nomValue = nom.value.trim();
+    const adresseValue  =  adresse.value.trim();
+    const phoneValue  =  phone.value.trim();
+    const emailValue =  email.value.trim();
+    const paysValue  = pays.value.trim();
+    const villeValue  =  ville.value.trim();
+    const evenementValue   =  evenement.value.trim();
+    const placeValue  =  place.value.trim();
+    const dateValue  =  date.value.trim();
+
+
+    if(nomValue !== "" ){
+        if(nomValue.match(/^[a-wA-Z]/) ){
+            if(nomValue.length > 5){
+                initialCorrect(nom);
+                if(adresseValue !== ""){
+                    initialCorrect(adresse);
+                    if(phoneValue !==""){
+                        initialCorrect(phone);
+                        if(verification_email(emailValue) ){
+                            initialCorrect(email);
+                            if(paysValue !==""){
+                                initialCorrect(pays);
+                                if(villeValue !==""){
+                                    initialCorrect(ville);
+                                    if(evenementValue !==""){
+                                        initialCorrect(evenement);
+                                        if(placeValue !==""){
+                                            initialCorrect(place);
+                                            if(dateValue !==""){
+                                                initialCorrect(date);
+                                                alert("Bonjour "+ nomValue + "! votre reservation a été enregistré avec succès !");
+                                                // console.log(nomValue, adresseValue ,phoneValue, emailValue , paysValue, villeValue, evenementValue, placeValue, dateValue );
+                                            } else {  erreur(date);}                                     
+                                        } else {  erreur(place);}
+                                    } else {  erreur(evenement);}
+                                } else {  erreur(ville);}
+                            }else { erreur(pays); }
+                        }else { erreur(email); }
+                    }else { erreur(phone); }
+                }else { erreur(adresse); }
+            }else { erreur(nom); }
+        }else {  erreur(nom); }
+    }else {   erreur(nom);}
+}
+
+function erreur(e){
+    // 
+    e.classList.remove("border-primary");
+    e.style.border = "1.8px solid red" ;
+}
+function initialCorrect(e){
+    e.classList.add("border-primary");
+    
+}
+function verification_email(email){
+    return /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/.test(email);
+}
